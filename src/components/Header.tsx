@@ -4,8 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import logo from '../../public/logo.png'
-import { useTheme } from "next-themes"
-import { Button } from './ui/button'
 import { ThemeToggle } from './ui/ThemeToggle'
 import NavMenu from './NavMenu'
 import { usePathname, useRouter } from 'next/navigation'
@@ -25,7 +23,7 @@ export const Header = () => {
     else if (pathName === '/blog'){
       setSelectedMenu(2);
     }
-  }, [])
+  }, [pathName])
 
   return (
     <div className='border-b-[1px] border-[var(--gray-foreground)] h-16 w-full max-w-screen-xl mx-auto absolute left-0 right-0 z-100 px-12'>

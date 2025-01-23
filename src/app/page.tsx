@@ -1,11 +1,7 @@
 import Content from "@/components/Content";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import Image from "next/image";
 import avatar from "../../public/avatars-content.jpg"
 import fire from "../../public/fire-content.jpg"
 import heart from "../../public/heart-content.jpg"
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
