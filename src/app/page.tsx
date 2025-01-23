@@ -19,7 +19,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full mt-20">
-            <div className="contents-grid">
+            <div className="contents-grid gap-6">
               <Content title="Avatar Choices" details="Choose avatar to your liking!" author="by Woody" image={avatar} link="https://www.vecteezy.com/vector-art/48383246-pixel-art-portrait-userpic-icons-8-bit-people-faces-young-pixelated-people-avatars-and-retro-game-characters-illustration-set"/>
               <Content title="Supa Hot Fire🔥" details="Pick what truly burns!!!" author="by 🐱‍👤" image={fire} link="https://www.istockphoto.com/search/2/image?mediatype=illustration&phrase=pixel+art+fire"/>
               <Content title="I'll give my heart to you💕" details="Give it to your love ones" author="by Cupid" image={heart} link="https://www.alamy.com/stock-photo/pixel-heart-vector-icons-set.html?imgt=8&sortBy=relevant"/>
