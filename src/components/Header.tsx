@@ -6,16 +6,16 @@ import React, { useEffect, useState } from 'react'
 import logo from '../../public/logo.png'
 import { ThemeToggle } from './ui/ThemeToggle'
 import NavMenu from './NavMenu'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 
 export const Header = () => {
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState(1);
   const pathName = usePathname();
 
   useEffect(() => {
-    setIsClient(true)
+    // setIsClient(true)
 
     if(pathName === '/'){
       setSelectedMenu(1);

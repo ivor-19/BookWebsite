@@ -2,17 +2,14 @@
  
 import * as React from "react"
 import Link from "next/link" 
-import { cn } from "@/lib/utils"
 
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 export default function NavMenu() {
