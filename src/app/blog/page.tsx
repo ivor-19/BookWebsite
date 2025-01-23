@@ -7,11 +7,11 @@ export default function Blog() {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const list = [
-    {id: 1, title: 'Tako is a beast!'},
-    {id: 2, title: 'Mallows is a warrior!'},
-    {id: 3, title: 'Mishy is the Queen!'},
-  ]
+  // const list = [
+  //   {id: 1, title: 'Tako is a beast!'},
+  //   {id: 2, title: 'Mallows is a warrior!'},
+  //   {id: 3, title: 'Mishy is the Queen!'},
+  // ]
 
   useEffect(() => {
     const fetchData = async () => {

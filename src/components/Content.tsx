@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image"
-import Link from "next/link";
+// import Link from "next/link";
 
 interface ContentProps {
   title: string;
