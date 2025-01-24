@@ -51,7 +51,7 @@ export default function Home() {
             <span className="text-[var(--secondary-text)] text-center">
               We hold these truths to be self-evident, that all men are created equal, 
               that they are endowed by their Creator with certain unalienable 
-              Rights, that among these are Life, Liberty and the pursuit of Happiness.
+              Rights, that among these are Life, Liberty and the pursuit of Greatness.
             </span>
             <div className="flex gap-8">
             </div>
