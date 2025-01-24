@@ -8,6 +8,7 @@ export async function GET() {
   const books = await Books.find({});
   return NextResponse.json({ message: 'Fetch Successfully', books});
  } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: 'Failed to fetch books'},
       { status: 500}
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
    const book = await Books.create(body);
    return NextResponse.json({message: 'Book addded successfully', status: 201 }, book)
   } catch (error) {
+     console.error(error);
      return NextResponse.json(
        { error: 'Failed to add a book'},
        { status: 500}

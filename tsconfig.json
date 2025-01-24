@@ -22,6 +22,9 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/blog/page", "src/app/api/example.js", "src/app/api/hello/route.ts", "src/lib/dbConnect.js"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/blog/page", "src/app/api/example.js", "src/app/api/hello/route.ts", "src/lib/dbConnect.ts", "src/app/api/books"],
+  "exclude": ["node_modules"],
+  "rules": {
+    "no-unused-vars": "off"
+  }
 }
