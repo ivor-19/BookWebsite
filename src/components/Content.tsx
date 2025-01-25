@@ -1,4 +1,6 @@
 import Image, { StaticImageData } from "next/image"
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 // import Link from "next/link";
 
 interface ContentProps {
@@ -25,12 +27,12 @@ export default function Content({title, details, author, image, link}: ContentPr
             </div>
           )}
         </div>
-        <div className="h-1/2 p-2 flex flex-col gap-4">
-          <h1 className="font-semibold">{title}</h1>
+        <div className="h-1/2 px-2 py-2 flex flex-col gap-4">
+          <h1 className="font-semibold">{title || <Skeleton />}</h1>
           <div className="flex flex-1 overflow-hidden">
-            <span className="text-[14px] text-[var(--secondary-text)] text-ellipsis">{details}</span>
+            <span className="text-[14px] text-[var(--secondary-text)] text-ellipsis">{details || <Skeleton count={4}/>}</span>
           </div>
-          <span className="text-[14px] text-[var(--secondary-text)]">by {author}</span>
+          <span className="text-[14px] text-[var(--secondary-text)]">by {author || <Skeleton />}</span>
         </div>
       </div>
     </a>

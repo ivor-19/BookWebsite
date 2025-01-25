@@ -6,6 +6,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.add-book-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .contents-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -21,6 +26,10 @@ body {
 @media (max-width: 1000px){
   .contents-grid{
     grid-template-columns: repeat(2, 1fr);
+  }
+  .add-book-grid{
+    grid-template-columns: 1fr; /* Stack the columns into a single column */
+    grid-template-rows: 1fr;   /* Allow rows to adjust automatically */
   }
 }
 
