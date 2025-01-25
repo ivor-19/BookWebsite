@@ -2,10 +2,15 @@
 
 import Content from "@/components/Content";
 import axios from "axios";
-import { useEffect, useState } from "react";
-// import avatar from "../../public/avatars-content.jpg"
-// import fire from "../../public/fire-content.jpg"
-// import heart from "../../public/heart-content.jpg"
+import Image from "next/image";
+import { CSSProperties, useEffect, useState } from "react";
+import PropagateLoader from "react-spinners/PropagateLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0",
+  borderColor: "#000000",
+};
 
 type Book = {
   _id: number;
@@ -17,6 +22,7 @@ type Book = {
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +30,11 @@ export default function Home() {
         const response = await axios.get('/api/books');
         if (Array.isArray(response.data.books)) {
           setBooks(response.data.books);
+          setLoading(false);
         } else {
           console.error("Expected an array but got:", response.data);
           setBooks([]); 
+          setLoading(false);
         }
       }
       catch(error){
@@ -34,7 +42,6 @@ export default function Home() {
       }
     }
     fetchData();
-
     const interval = setInterval(() => {
       fetchData();
     }, 2000);
@@ -57,7 +64,19 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full mt-20">
-            {Array.isArray(books) && books.length > 0 ? (
+            {loading ? (
+              <div className="w-full h-full flex justify-center items-center">
+                <PropagateLoader 
+                  color={'#000000'}
+                  loading={true}
+                  cssOverride={override}
+                  size={10}
+                  speedMultiplier={1}
+                  aria-label="PropagateLoader"
+                  data-testid="PropagateLoader"
+                />
+              </div>
+            ) : Array.isArray(books) && books.length > 0 ? (
               <div className="contents-grid gap-6">
                 {books.map((item, index) => (
                   <Content
@@ -71,9 +90,12 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="w-full h-full flex items-center justify-center font-geist">No books available</div> // Display a message if no books are available
+              <div className="w-full h-full flex items-center justify-center font-geist">
+                No books available
+              </div>
             )}
           </div>
+         
         </main>
         
       </div>

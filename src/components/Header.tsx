@@ -23,6 +23,9 @@ export const Header = () => {
     else if (pathName === '/blog'){
       setSelectedMenu(2);
     }
+    else if (pathName === '/add-book'){
+      setSelectedMenu(3);
+    }
   }, [pathName])
 
   return (
@@ -37,6 +40,9 @@ export const Header = () => {
           </Link>
           <Link href={'/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Blog</span>
+          </Link>
+          <Link href={'/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+            <span>Add Your Book</span>
           </Link>
           <NavMenu />
           <ThemeToggle />

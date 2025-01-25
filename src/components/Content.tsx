@@ -23,7 +23,7 @@ export default function Content({title, details, author, image, link}: ContentPr
             <Image src={image} alt="" layout="fill" objectFit="cover" />
           ):(
             <div className="w-full h-full flex justify-center items-center bg-[var(--gray-foreground)] font-geist text-[14px]">
-              Photo Not Available
+              Photo Is Not Available
             </div>
           )}
         </div>
@@ -32,6 +32,7 @@ export default function Content({title, details, author, image, link}: ContentPr
           <div className="flex flex-1 overflow-hidden">
             <span className="text-[14px] text-[var(--secondary-text)] text-ellipsis">{details || <Skeleton count={4}/>}</span>
           </div>
+          
           <span className="text-[14px] text-[var(--secondary-text)]">by {author || <Skeleton />}</span>
         </div>
       </div>
