@@ -94,6 +94,7 @@ export default function AddBook() {
         body: data,
       });
       const signedUrl = await uploadRequest.json();
+      console.log("Received signed URL:", signedUrl);
       setUrl(signedUrl);
       setUploading(false);
       try{
@@ -121,6 +122,10 @@ export default function AddBook() {
       console.log(e);
       setUploading(false);
       alert("Trouble uploading file");
+    }
+    finally {
+      setUploading(false);
+      setLoading(false);
     }
   };
 
