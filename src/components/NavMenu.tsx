@@ -19,7 +19,7 @@ export default function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Documentation</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] max-md:w-[200px]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link

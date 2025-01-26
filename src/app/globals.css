@@ -39,6 +39,15 @@ body {
   }
 }
 
+
+/* MOBILE RESPONSIVE */
+/* HEADER PART */
+@media (max-width: 412){
+  .header-mobile{
+    font-size: 12px;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
