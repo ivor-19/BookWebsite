@@ -42,8 +42,8 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='text-[12px] flex items-center justify-center gap-12'>
-        <ul className='text-[12px] flex gap-12 text-gray-600'>
+      <div className='text-[12px] items-center justify-center gap-12 w-full'>
+        <ul className='text-[12px] gap-12 text-gray-600 footer-language'>
           <li><a href="#" className='text-[var(--hover-text)]'>English (English)</a></li>
           <li><a href="#" className='hover:text-[var(--hover-text)]'>Español (Spanish)</a></li>
           <li><a href="#" className='hover:text-[var(--hover-text)]'>Français (French)</a></li>
@@ -52,7 +52,7 @@ export const Footer = () => {
           <li><a href="#" className='hover:text-[var(--hover-text)]'>العربية (Arabic)</a></li>
         </ul>
       </div>
-      <div className='text-[12px] flex items-center justify-between gap-12 w-full'>
+      <div className='text-[12px] flex items-center justify-between gap-12 w-full max-sm:flex-col'>
         <div className='flex flex-auto justify-start'>
           <span>LOGO</span>
         </div>

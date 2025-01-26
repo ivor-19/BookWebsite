@@ -17,6 +17,11 @@ body {
   
 }
 
+.footer-language{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
 @media (max-width: 1350px){
   .contents-grid{
     grid-template-columns: repeat(3, 1fr);
@@ -44,6 +49,12 @@ body {
 /* HEADER PART */
 @media (max-width: 412){
   .header-mobile{
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px){
+  .footer-language{
+    grid-template-columns: repeat(3, 1fr);
     font-size: 12px;
   }
 }
