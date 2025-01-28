@@ -34,7 +34,7 @@ export function Slider() {
       setSelectedMenu(2);
       setOpen(false);
     }
-    else if (pathName === '/add-book'){
+    else if (pathName === '/books/add-book'){
       setSelectedMenu(3);
       setOpen(false);
     }
