@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image"
+import Link from "next/link";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 // import Link from "next/link";
@@ -13,10 +14,7 @@ interface ContentProps {
 
 export default function Content({title, details, author, image, link}: ContentProps) {
   return(
-    <a href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href={link}>
       <div className="group transform transition-transform duration-300 ease-in-out hover:scale-105 rounded-md h-80 shadow-xl overflow-hidden border-[1px] border-border-[var(--gray-foreground)]">
         <div className="h-1/2 bg-gray-200 relative overflow-hidden">
           {image ? (
@@ -36,6 +34,6 @@ export default function Content({title, details, author, image, link}: ContentPr
           <span className="text-[14px] text-[var(--secondary-text)]">by {author || <Skeleton />}</span>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }

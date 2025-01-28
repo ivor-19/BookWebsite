@@ -85,7 +85,7 @@ export default function Home() {
                     author={item.author}
                     details={item.details}
                     image={item.image}
-                    link=""
+                    link={`/books/${item._id}`}
                   />
                 ))}
               </div>
