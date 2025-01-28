@@ -3,10 +3,13 @@ import dbConnect from "@/lib/dbConnect";
 import Books from "@/lib/models/Books";
 
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-  await dbConnect();  
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
   
-  const book = await Books.findById(params.id);
+  await dbConnect();  
+
+  const book = await Books.findById(id);
   if (!book) {
     return NextResponse.json({ error: "Book not found" }, { status: 404 });
   }
