@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Books from "@/lib/models/Books";
 
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  await dbConnect();
+export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+  await dbConnect();  
   
   const book = await Books.findById(params.id);
   if (!book) {
