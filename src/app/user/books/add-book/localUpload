@@ -1,0 +1,55 @@
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   // Handle file selection
+  //   if (event.target.files) {
+  //     setFile(event.target.files[0]);
+  //   }
+  // };
+
+  // // Update the event type to MouseEvent
+  // const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();  // Prevent default behavior (not strictly needed but good practice)
+  //   if (!file) {
+  //     setMessage('Please select a file to upload.');
+  //     return;
+  //   }
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+  //   try {
+  //     const response = await fetch('/api/upload', {
+  //       method: 'POST',
+  //       body: formData,
+  //     });
+
+  //     const data = await response.json();
+  //     if (response.ok) {
+  //       setMessage(`File uploaded successfully: ${data.filename}`);
+  //       setImagePath(`/uploads/${data.filename}`);
+
+  //       //upload to database
+  //       try{
+  //         const response = await axios.post('../api/books', {title, details, author,  imagePath: `/uploads/${data.filename}`});
+  //         console.log("Book has been create", response.data);
+
+  //         toast("Book has been created", {
+  //           description: `${title} by ${author}`,
+  //           action: {
+  //             label: "Close",
+  //             onClick: () => console.log("Close"),
+  //           },
+  //         })
+  //         setTitle('');
+  //         setDetails('');
+  //         setAuthor('');
+  //         setImagePath('')
+  //       }
+  //       catch(error){
+  //         console.error("Error adding book", error);
+  //         alert("Something went wrong. Try again");
+  //       }
+  //     } else {
+  //       setMessage(`Upload failed: ${data.error || 'Unknown error'}`);
+  //     }
+  //   } catch (error) {
+  //     setMessage('An error occurred during the upload.');
+  //   }
+  // };

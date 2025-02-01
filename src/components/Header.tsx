@@ -8,6 +8,7 @@ import { ThemeToggle } from './ui/ThemeToggle'
 import NavMenu from './NavMenu'
 import { usePathname } from 'next/navigation'
 import { Slider } from './Slider'
+import { PopoverMenu } from './PopoverMenu'
 
 
 export const Header = () => {
@@ -36,19 +37,19 @@ export const Header = () => {
           <Image src={logo} alt='' height={32} width={32} className='rounded-md'/>
         </div>
         <div className='text-[14px] flex gap-8 h-full items-center max-sm:hidden'>
-          <Link href={'/'} onClick={() => setSelectedMenu(1)} className={`${selectedMenu === 1 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user'} onClick={() => setSelectedMenu(1)} className={`${selectedMenu === 1 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Home</span>
           </Link>
-          <Link href={'/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Blog</span>
           </Link>
-          <Link href={'/books/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user/books/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Add Your Book</span>
           </Link>
           <NavMenu />
           <ThemeToggle />
         </div>
-        <Slider />
+        <PopoverMenu />
       </div>  
     </div>
   )

@@ -63,7 +63,7 @@ export default function BookPage() {
            </div>
           ):(
             <div className="flex flex-col gap-6 w-full">
-              <Link href={'/'}>
+              <Link href={'/user'}>
                 <Button>Go Back</Button>
               </Link>
               <div className="w-full flex justify-center">

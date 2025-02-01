@@ -26,15 +26,15 @@ export function Slider() {
   useEffect(() => {
     // setIsClient(true)
 
-    if(pathName === '/'){
+    if(pathName === '/user'){
       setSelectedMenu(1);
       setOpen(false);
     }
-    else if (pathName === '/blog'){
+    else if (pathName === '/user/blog'){
       setSelectedMenu(2);
       setOpen(false);
     }
-    else if (pathName === '/books/add-book'){
+    else if (pathName === '/user/books/add-book'){
       setSelectedMenu(3);
       setOpen(false);
     }
@@ -50,13 +50,13 @@ export function Slider() {
         <SheetHeader>
           <SheetTitle></SheetTitle>
           <div className="flex flex-col gap-6 font-geist text-[16px] p-4">
-            <Link href={'/'} onClick={() => setSelectedMenu(1)} className={`${selectedMenu === 1 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+            <Link href={'/user'} onClick={() => setSelectedMenu(1)} className={`${selectedMenu === 1 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
               <span>Home</span>
             </Link>
-            <Link href={'/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+            <Link href={'/user/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
               <span>Blog</span>
             </Link>
-            <Link href={'/books/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md `}>
+            <Link href={'/user/books/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md `}>
               <span>Add Your Book</span>
             </Link>
             <NavMenu />

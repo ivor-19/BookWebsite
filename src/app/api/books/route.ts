@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({
+      isSuccess: true,
       message: 'Book added successfully',
       status: 201,
       book 

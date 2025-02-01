@@ -90,6 +90,9 @@ body {
     --gray-foreground: #d6d5d55e;
     --secondary-text: #718096;
     --hover-text: black;
+
+    --mbutton-active: black;
+    --mtext-active: white;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -120,6 +123,9 @@ body {
     --gray-foreground: #282b31; 
     --secondary-text: #cbd5e0;
     --hover-text: white;
+
+    --mbutton-active: black;
+    --mtext-active: white;
   }
 }
 

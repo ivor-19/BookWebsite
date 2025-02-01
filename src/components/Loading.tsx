@@ -22,11 +22,13 @@ const override: CSSProperties = {
 interface LoadingProps {
   open: boolean;
   setOpen: (open: boolean) => void;
+  note: string;
 }
 
 export function Loading({
   open,
   setOpen,
+  note,
 }: LoadingProps) {
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
@@ -45,7 +47,7 @@ export function Loading({
               aria-label="PropagateLoader "
               data-testid="PropagateLoader "
             />
-            <div className="absolute right-50 left-50 bottom-6 font-geist text-[12px]">This may take a while</div>
+            <div className="absolute right-50 left-50 bottom-6 font-geist text-[12px]">{note}</div>
           </div>
         </AlertDialogHeader>
       </AlertDialogContent>
