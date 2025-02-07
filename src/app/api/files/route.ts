@@ -1,7 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { pinata } from "@/utils/config"
+import dbConnect from "@/lib/dbConnect";
 
 export async function POST(request: NextRequest) {
+  await dbConnect();
   try {
     const data = await request.formData();
     const file: File | null = data.get("file") as unknown as File;

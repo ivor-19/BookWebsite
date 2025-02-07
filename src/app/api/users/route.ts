@@ -4,6 +4,7 @@ import Accounts from '@/lib/models/Accounts';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
+  await dbConnect();
   try {
     const account = await Accounts.find();  // Explicitly include createdAt field
     return NextResponse.json({ message: 'Fetch Successfully', account });

@@ -5,6 +5,7 @@ import { generateToken, verifyToken } from "@/lib/services/jwt";
 import { serialize } from "cookie";
 
 export async function POST(req: NextRequest) {
+  await dbConnect();
   try {
     const { email, password } = await req.json();
     const account = await Accounts.findOne({ email });
@@ -66,6 +67,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
+  await dbConnect();
   const token = req.cookies.get('token')?.value; // Get the token from cookies and extract its value
 
   if (!token) {
