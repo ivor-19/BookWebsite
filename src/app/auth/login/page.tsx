@@ -18,9 +18,10 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import dark_bg from "../../../../public/images/dark-bg.png"
-import axios from "axios";
 import { Loading } from "@/components/Loading";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import axios from '@/utils/axios'
+import { useAuth } from "@/context/AuthContext";
 
 const override: CSSProperties = {
   display: "block",
@@ -38,6 +39,7 @@ const FormSchema = z.object({
 type FormData = z.infer<typeof FormSchema>;
 
 export default function Login() {
+  const { setUserData } = useAuth();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
@@ -49,16 +51,22 @@ export default function Login() {
   const onSubmit = async (data: FormData ) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/auth/login', {email: data.email, password: data.password});
-      if(response.data){
-        setLoading(false);
+      const response = await axios.post('/api/auth/login', { email: data.email, password: data.password });
+      if (response.data) {
+        const { _id, username, email } = response.data.account;
+        setUserData({ _id, username, email }); // This will also set the cookie
         router.replace('/user');
       }
     } catch (error) {
       setLoading(false);
       setLoginError(true);
       console.error("Error signing up", error);
-      
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit(onSubmit)();
     }
   };
 
@@ -87,6 +95,7 @@ export default function Login() {
                       placeholder="m@example.com"
                       {...register("email")}
                       required
+                      onKeyDown={handleKeyDown}
                     />
                     {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
                   </div>
@@ -97,7 +106,7 @@ export default function Login() {
                         Forgot your password?
                       </a>
                     </div>
-                    <Input id="password" type="password" {...register("password")} required />
+                    <Input id="password" type="password" {...register("password")} required onKeyDown={handleKeyDown}/>
                     {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
                   </div>
                   {loginError && <span className="text-red-500 text-sm">Wrong credentials</span>}

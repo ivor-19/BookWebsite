@@ -1,6 +1,7 @@
 "use client"
 
 import Content from "@/components/Content";
+import { useAuth } from "@/context/AuthContext";
 import axios from "axios";
 import Image from "next/image";
 import { CSSProperties, useEffect, useState } from "react";
@@ -21,6 +22,7 @@ type Book = {
 }
 
 export default function Home() {
+  const { user } = useAuth();
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -54,7 +56,7 @@ export default function Home() {
       <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen py-8 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 w-full items-center sm:items-start max-w-[80%] px-4">
           <div className="w-full flex flex-col items-center gap-8 ">
-            <h1 className="text-[24px] font-semibold">Templates and Examples</h1>
+            <h1 className="text-[24px] font-semibold">Templates and Examples {user?.username}</h1>
             <span className="text-[var(--secondary-text)] text-center">
               We hold these truths to be self-evident, that all men are created equal, 
               that they are endowed by their Creator with certain unalienable 

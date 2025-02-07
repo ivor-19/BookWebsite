@@ -12,20 +12,35 @@ import { AlignJustify } from 'lucide-react'
 import { ThemeToggle } from './ui/ThemeToggle'
 import { Loading } from './Loading'
 import { useRouter } from 'next/navigation'
+import axios from '@/utils/axios'
+import { useAuth } from '@/context/AuthContext'
 
 export const PopoverMenu = () => {
+  const { setUserData } = useAuth();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState(1);
   const [loading, setLoading] = useState(false);
   const pathName = usePathname();
 
-  const handleLogout = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      router.replace('/auth/login');
-    }, 3000)
+  const handleLogout = async () => {
+    try{
+      const response = await axios.post('/api/auth/logout');
+
+      if(response.data.isSuccess){
+        setLoading(true);
+        console.log('Logout');
+        setTimeout(() => {
+          setUserData(null);
+        }, 3000)
+      }
+      else{
+        console.error(response.data.error);
+      }
+    }
+    catch(error){
+      console.error('Failed in logging out', error);
+    }
   }
 
   useEffect(() => {

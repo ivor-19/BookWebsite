@@ -3,7 +3,6 @@ import Books from "@/lib/models/Books";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  await dbConnect();
   try {
     const books = await Books.find({}).select('title details author image createdAt');  // Explicitly include createdAt field
     return NextResponse.json({ message: 'Fetch Successfully', books });
@@ -17,7 +16,6 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  await dbConnect();
   try {
     const body = await req.json();
     const book = await Books.create({

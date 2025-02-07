@@ -12,24 +12,9 @@ import { PopoverMenu } from './PopoverMenu'
 
 
 export const Header = () => {
-  // const [isClient, setIsClient] = useState(false);
-  const [selectedMenu, setSelectedMenu] = useState(1);
   const pathName = usePathname();
 
-  useEffect(() => {
-    // setIsClient(true)
-
-    if(pathName === '/'){
-      setSelectedMenu(1);
-    }
-    else if (pathName === '/blog'){
-      setSelectedMenu(2);
-    }
-    else if (pathName === '/add-book'){
-      setSelectedMenu(3);
-    }
-  }, [pathName])
-
+ 
   return (
     <div className='border-b-[1px] border-[var(--gray-foreground)] h-16 w-full max-w-screen-xl mx-auto absolute left-0 right-0 z-100 px-12 header-mobile'>
       <div className='h-full w-full flex items-center justify-between font-[family-name:var(--font-geist-mono)]'>
@@ -37,13 +22,13 @@ export const Header = () => {
           <Image src={logo} alt='' height={32} width={32} className='rounded-md'/>
         </div>
         <div className='text-[14px] flex gap-8 h-full items-center max-sm:hidden'>
-          <Link href={'/user'} onClick={() => setSelectedMenu(1)} className={`${selectedMenu === 1 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user'} className={`${pathName === '/user' ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Home</span>
           </Link>
-          <Link href={'/user/blog'} onClick={() => setSelectedMenu(2)} className={`${selectedMenu === 2 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user/blog'} className={`${pathName === '/user/blog' ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Blog</span>
           </Link>
-          <Link href={'/user/books/add-book'} onClick={() => setSelectedMenu(3)} className={`${selectedMenu === 3 ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
+          <Link href={'/user/books/add-book'} className={`${pathName === '/user/add-book' ? 'bg-[var(--gray-foreground)]' : 'bg-transparent'} p-2 rounded-md`}>
             <span>Add Your Book</span>
           </Link>
           <NavMenu />

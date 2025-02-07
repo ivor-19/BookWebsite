@@ -1,6 +1,7 @@
 // app/user/layout.tsx (User-specific layout)
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function UserLayout({
   children,
@@ -17,9 +18,11 @@ export default function UserLayout({
 
   return (
     <>
-      <Header />
-        <main>{children}</main>  {/* Render user-specific pages */}
-      <Footer />
+     <ProtectedRoute>
+        <Header />
+          <main>{children}</main>  {/* Render user-specific pages */}
+        <Footer />
+     </ProtectedRoute>
     </>
   );
 }

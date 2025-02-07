@@ -18,9 +18,10 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import dark_bg from "../../../../public/images/dark-bg.png"
-import axios from "axios";
 import { Loading } from "@/components/Loading";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import axios from '@/utils/axios'
+import { useAuth } from "@/context/AuthContext";
 
 const override: CSSProperties = {
   display: "block",
@@ -39,6 +40,7 @@ const FormSchema = z.object({
 type FormData = z.infer<typeof FormSchema>;
 
 export default function Signup() {
+  const { setUserData } = useAuth();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -52,6 +54,8 @@ export default function Signup() {
     try {
       const response = await axios.post('/api/auth/signup', user);
       if(response.data){
+        const {_id, username, email} = response.data.account;
+        setUserData({_id, username, email});
         setLoading(false);
         router.replace('/user');
       }

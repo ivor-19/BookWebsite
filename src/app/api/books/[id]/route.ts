@@ -6,8 +6,7 @@ import Books from "@/lib/models/Books";
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const id = url.pathname.split('/').pop();
-  
-  await dbConnect();  
+
 
   const book = await Books.findById(id);
   if (!book) {
